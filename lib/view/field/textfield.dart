@@ -14,6 +14,7 @@ class CTextField extends StatefulWidget {
   final double? fontSize;
   final EdgeInsets? padding;
   final bool readOnly;
+  final bool autoFocus;
 
   const CTextField({
     this.label = "",
@@ -24,6 +25,7 @@ class CTextField extends StatefulWidget {
     this.fontSize,
     this.padding,
     this.readOnly = false,
+    this.autoFocus=false,
     super.key,
   });
 
@@ -71,11 +73,13 @@ class _CTextFieldState extends State<CTextField> {
         maxLines: 4,
         controller: controller,
         onChanged: widget.onChange,
+        autofocus: widget.autoFocus,
         style: TextStyle(
           fontSize: widget.fontSize ?? FontSize.medium,
         ),
         enabled: !widget.readOnly,
         decoration: InputDecoration(
+          hintText: widget.hint,
           isCollapsed: true,
           border: HelperTextField.noBorder(),
           disabledBorder: HelperTextField.noBorder(),
