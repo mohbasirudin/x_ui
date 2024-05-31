@@ -13,6 +13,7 @@ class CTextFieldFullscreen extends StatefulWidget {
   final TextInputType? type;
   final double? fontSize;
   final EdgeInsets? padding;
+  final bool readOnly;
 
   const CTextFieldFullscreen({
     this.label = "",
@@ -22,6 +23,7 @@ class CTextFieldFullscreen extends StatefulWidget {
     this.type,
     this.fontSize,
     this.padding,
+    this.readOnly = false,
     super.key,
   });
 
@@ -37,9 +39,9 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-log("== init state ==");
+    log("== init state ==");
     value = widget.initialValue;
-    controller.text=value;
+    controller.text = value;
   }
 
   @override
@@ -54,9 +56,12 @@ log("== init state ==");
   Widget build(BuildContext context) {
     return TextFieldBody(
       label: widget.label,
+      readOnly: widget.readOnly,
       padding: widget.padding,
       child: GestureDetector(
         onTap: () {
+          if (widget.readOnly) return;
+
           _openDialog(
             context,
             type: widget.type,
@@ -67,7 +72,7 @@ log("== init state ==");
           value.isNotEmpty ? value : widget.hint,
           style: TextStyle(
             color: value.isNotEmpty ? Colors.black : Colors.grey.shade400,
-            fontSize: widget.fontSize??FontSize.medium,
+            fontSize: widget.fontSize ?? FontSize.medium,
           ),
         ),
       ),
@@ -136,6 +141,4 @@ log("== init state ==");
       },
     );
   }
-
-
 }

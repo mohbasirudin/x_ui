@@ -6,6 +6,8 @@ class TextFieldBody extends StatefulWidget {
   final Widget? rightIcon;
   final Function()? onTapRight;
   final EdgeInsets? padding;
+  final bool readOnly;
+  final String? fontFamily;
 
   const TextFieldBody({
     this.label = "",
@@ -13,6 +15,8 @@ class TextFieldBody extends StatefulWidget {
     this.rightIcon,
     this.onTapRight,
     this.padding,
+    this.readOnly = false,
+    this.fontFamily,
     super.key,
   });
 
@@ -39,6 +43,9 @@ class _TextFieldBodyState extends State<TextFieldBody> {
               ),
               child: Text(
                 widget.label,
+                style: TextStyle(
+                  fontFamily: widget.fontFamily,
+                ),
               ),
             ),
           ),
@@ -46,7 +53,9 @@ class _TextFieldBodyState extends State<TextFieldBody> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(),
+              border: Border.all(
+                color: widget.readOnly ? Colors.grey.shade400 : Colors.blueGrey,
+              ),
             ),
             child: Row(
               children: [
@@ -63,6 +72,24 @@ class _TextFieldBodyState extends State<TextFieldBody> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Visibility(
+            visible: widget.readOnly,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 8,
+                top: 4,
+              ),
+              child: Text(
+                "Read only",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w300,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.blueGrey.shade300,
+                ),
+              ),
             ),
           ),
         ],

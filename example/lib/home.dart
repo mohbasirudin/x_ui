@@ -15,11 +15,11 @@ class _PageHomeState extends State<PageHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed:() {
-        setState(() {
-
-        });
-      }, ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {});
+        },
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -31,14 +31,17 @@ class _PageHomeState extends State<PageHome> {
                 print("change: $value");
               },
               padding: EdgeInsets.all(12),
+              readOnly: true,
             ),
             CTextFieldNumber(
               label: "Price",
-padding: EdgeInsets.all(12),
-initialValue: "12000",
-onChange: (value) {
-
-},
+              padding: EdgeInsets.all(12),
+              initialValue: "12000",
+              digits: 2,
+              onChange: (value) {
+                print("number: $value");
+              },
+              readOnly: true,
             ),
             CTextFieldFullscreen(
               label: "Note",
@@ -47,6 +50,7 @@ onChange: (value) {
                 print("change: $value");
               },
               padding: EdgeInsets.all(12),
+              readOnly: true,
             ),
           ],
         ),

@@ -13,6 +13,7 @@ class CTextField extends StatefulWidget {
   final TextInputType? type;
   final double? fontSize;
   final EdgeInsets? padding;
+  final bool readOnly;
 
   const CTextField({
     this.label = "",
@@ -22,6 +23,7 @@ class CTextField extends StatefulWidget {
     this.type,
     this.fontSize,
     this.padding,
+    this.readOnly = false,
     super.key,
   });
 
@@ -62,6 +64,7 @@ class _CTextFieldState extends State<CTextField> {
     return TextFieldBody(
       label: widget.label,
       padding: widget.padding,
+      readOnly: widget.readOnly,
       child: TextFormField(
         keyboardType: widget.type,
         minLines: 1,
@@ -71,6 +74,7 @@ class _CTextFieldState extends State<CTextField> {
         style: TextStyle(
           fontSize: widget.fontSize ?? FontSize.medium,
         ),
+        enabled: !widget.readOnly,
         decoration: InputDecoration(
           isCollapsed: true,
           border: HelperTextField.noBorder(),
@@ -83,6 +87,4 @@ class _CTextFieldState extends State<CTextField> {
       ),
     );
   }
-
-
 }
