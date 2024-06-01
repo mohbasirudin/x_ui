@@ -15,6 +15,7 @@ class CTextFieldNumber extends StatefulWidget {
   final EdgeInsets? padding;
   final int? digits;
   final bool readOnly;
+  final String? fontFamily;
 
   const CTextFieldNumber({
     this.label = "",
@@ -24,7 +25,8 @@ class CTextFieldNumber extends StatefulWidget {
     this.fontSize,
     this.padding,
     this.digits,
-    this.readOnly=false,
+    this.readOnly = false,
+    this.fontFamily,
     super.key,
   });
 
@@ -84,6 +86,9 @@ class _CTextFieldNumberState extends State<CTextFieldNumber> {
           currencyFormat!,
         ],
         enabled: !widget.readOnly,
+        style: TextStyle(
+          fontFamily: widget.fontFamily,
+        ),
         decoration: InputDecoration(
           isCollapsed: true,
           border: HelperTextField.noBorder(),

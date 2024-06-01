@@ -88,6 +88,7 @@ class _TextFieldBodyState extends State<TextFieldBody> {
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic,
                   color: Colors.blueGrey.shade300,
+                  fontFamily: widget.fontFamily,
                 ),
               ),
             ),

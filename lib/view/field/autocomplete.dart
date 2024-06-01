@@ -19,6 +19,7 @@ class CAutocomplete extends StatefulWidget {
   final bool saveHistory;
   final bool showHistory;
   final List<String> data;
+  final String? fontFamily;
 
   const CAutocomplete({
     this.label = "",
@@ -32,6 +33,7 @@ class CAutocomplete extends StatefulWidget {
     this.saveHistory = false,
     this.showHistory = false,
     required this.data,
+    this.fontFamily,
     super.key,
   });
 
@@ -79,6 +81,7 @@ class _CAutocompleteState extends State<CAutocomplete> {
           saveHistory: widget.saveHistory,
           showHistory: widget.showHistory,
           onChange: widget.onChange,
+          fontFamily: widget.fontFamily,
         );
       },
     );
@@ -91,6 +94,7 @@ class _DialogAutocomplete extends StatefulWidget {
   final bool saveHistory;
   final bool showHistory;
   final Function(String value) onChange;
+  final String? fontFamily;
 
   const _DialogAutocomplete({
     required this.data,
@@ -98,6 +102,7 @@ class _DialogAutocomplete extends StatefulWidget {
     this.saveHistory = false,
     this.showHistory = false,
     required this.onChange,
+    this.fontFamily,
   });
 
   @override
@@ -105,8 +110,8 @@ class _DialogAutocomplete extends StatefulWidget {
 }
 
 class _DialogAutocompleteState extends State<_DialogAutocomplete> {
-  List<ModelItem> _datas = [];
-  List<ModelItem> _localDatas = [];
+  final List<ModelItem> _datas = [];
+  final List<ModelItem> _localDatas = [];
   String _search = "";
   double _iconSize = 0.0;
 
@@ -233,6 +238,7 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
                       "Data not found!",
                       style: TextStyle(
                         color: Colors.blueGrey,
+                        fontFamily: widget.fontFamily,
                       ),
                     ),
                   ),
@@ -278,7 +284,6 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
               ? GestureDetector(
                   onTap: () async {
                     try {
-                      logs("index $index");
                       _localDatas.removeAt(index);
                       _datas.removeAt(index);
                       var locals = <String>[];
@@ -298,10 +303,11 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
                     "Clear",
                     style: TextStyle(
                       color: Colors.red,
+                      fontFamily: widget.fontFamily,
                     ),
                   ),
                 )
-              : Icon(
+              : const Icon(
                   Icons.keyboard_arrow_right,
                   // color: XColors.disabled,
                   color: Colors.blueGrey,

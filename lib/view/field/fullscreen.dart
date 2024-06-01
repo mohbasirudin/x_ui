@@ -14,6 +14,7 @@ class CTextFieldFullscreen extends StatefulWidget {
   final double? fontSize;
   final EdgeInsets? padding;
   final bool readOnly;
+  final String? fontFamily;
 
   const CTextFieldFullscreen({
     this.label = "",
@@ -24,6 +25,7 @@ class CTextFieldFullscreen extends StatefulWidget {
     this.fontSize,
     this.padding,
     this.readOnly = false,
+    this.fontFamily,
     super.key,
   });
 
@@ -73,6 +75,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
           style: TextStyle(
             color: value.isNotEmpty ? Colors.black : Colors.grey.shade400,
             fontSize: widget.fontSize ?? FontSize.medium,
+            fontFamily: widget.fontFamily,
           ),
         ),
       ),
@@ -94,8 +97,9 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
             automaticallyImplyLeading: false,
             title: Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
+                fontFamily: widget.fontFamily,
               ),
             ),
             actions: [
@@ -117,8 +121,9 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
               maxLines: 999999,
               keyboardType: type,
               textInputAction: TextInputAction.done,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
+                fontFamily: widget.fontFamily,
               ),
               onEditingComplete: () {
                 setState(() {

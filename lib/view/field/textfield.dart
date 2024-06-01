@@ -15,6 +15,7 @@ class CTextField extends StatefulWidget {
   final EdgeInsets? padding;
   final bool readOnly;
   final bool autoFocus;
+  final String? fontFamily;
 
   const CTextField({
     this.label = "",
@@ -25,7 +26,8 @@ class CTextField extends StatefulWidget {
     this.fontSize,
     this.padding,
     this.readOnly = false,
-    this.autoFocus=false,
+    this.autoFocus = false,
+    this.fontFamily,
     super.key,
   });
 
@@ -76,6 +78,7 @@ class _CTextFieldState extends State<CTextField> {
         autofocus: widget.autoFocus,
         style: TextStyle(
           fontSize: widget.fontSize ?? FontSize.medium,
+          fontFamily: widget.fontFamily,
         ),
         enabled: !widget.readOnly,
         decoration: InputDecoration(
