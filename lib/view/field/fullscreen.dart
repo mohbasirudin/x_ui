@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:x_ui/const.dart';
 import 'package:x_ui/helper/const.dart';
+import 'package:x_ui/helper/helper.dart';
 import 'package:x_ui/view/field/body.dart';
 import 'package:x_ui/view/field/helper.dart';
 
@@ -75,7 +76,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
           value.isNotEmpty ? value : widget.hint,
           style: TextStyle(
             color: value.isNotEmpty ? Colors.black : Colors.grey.shade400,
-            fontSize: widget.fontSize ?? FontSize.medium,
+            fontSize: widget.fontSize ?? FontSize.medium(),
             fontFamily: widget.fontFamily,
           ),
         ),
@@ -99,7 +100,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
             title: Text(
               label,
               style: TextStyle(
-                fontSize: FontSize.extraLarge,
+                fontSize: FontSize.large(),
                 fontFamily: widget.fontFamily,
               ),
             ),
@@ -123,7 +124,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
               keyboardType: type,
               textInputAction: TextInputAction.done,
               style: TextStyle(
-                fontSize: FontSize.extraLarge,
+                fontSize: FontSize.large(),
                 fontFamily: widget.fontFamily,
               ),
               onEditingComplete: () {

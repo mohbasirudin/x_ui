@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_ui/helper/const.dart';
+import 'package:x_ui/helper/helper.dart';
 
 class TextFieldBody extends StatefulWidget {
   final String label;
@@ -46,6 +47,7 @@ class _TextFieldBodyState extends State<TextFieldBody> {
                 widget.label,
                 style: TextStyle(
                   fontFamily: widget.fontFamily,
+                  fontSize: FontSize.small(),
                 ),
               ),
             ),
@@ -85,7 +87,7 @@ class _TextFieldBodyState extends State<TextFieldBody> {
               child: Text(
                 "Read only",
                 style: TextStyle(
-                  fontSize: FontSize.small,
+                  fontSize: FontSize.small(),
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic,
                   color: Colors.blueGrey.shade300,

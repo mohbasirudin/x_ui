@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:x_ui/const.dart';
 import 'package:x_ui/helper/colors.dart';
 import 'package:x_ui/helper/const.dart';
+import 'package:x_ui/helper/helper.dart';
 import 'package:x_ui/view/field/body.dart';
 import 'package:x_ui/view/field/helper.dart';
 
@@ -79,7 +80,7 @@ class _CTextFieldState extends State<CTextField> {
         onChanged: widget.onChange,
         autofocus: widget.autoFocus,
         style: TextStyle(
-          fontSize: widget.fontSize ?? FontSize.medium,
+          fontSize: widget.fontSize ?? FontSize.medium(),
           fontFamily: widget.fontFamily,
           fontWeight: FontWeight.w400,
         ),
@@ -88,7 +89,7 @@ class _CTextFieldState extends State<CTextField> {
           hintText: widget.hint,
           isCollapsed: true,
           hintStyle: TextStyle(
-            fontSize: widget.fontSize ?? FontSize.medium,
+            fontSize: widget.fontSize ?? FontSize.medium(),
             color: XColors.disabled,
             fontWeight: FontWeight.w400,
           ),

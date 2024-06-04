@@ -34,28 +34,57 @@ class _PageHomeState extends State<PageHome> {
   }
 
   Widget _body() {
-    logs("width: ${width()} , ${XFontSize.medium()}");
     return SingleChildScrollView(
+      padding: padAll(),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: padAll(56),
-            child: Text(
-              "12",
-              style: TextStyle(
-                fontSize: XFontSize.medium(),
-              ),
+            padding: padAll(v: 56),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "12",
+                  style: TextStyle(
+                    fontSize: FontSize.small(),
+                  ),
+                ),
+                Text(
+                  "12",
+                  style: TextStyle(
+                    fontSize: FontSize.medium(),
+                  ),
+                ),
+                Text(
+                  "12",
+                  style: TextStyle(
+                    fontSize: FontSize.large(),
+                  ),
+                ),
+              ],
             ),
           ),
-          CButtonElevated(),
+          CButtonElevated(
+            text: "Submit",
+            onTap: () {},
+            padding: padBottom(),
+            radius: 12,
+          ),
+          CButtonElevated(
+            text: "Submit",
+            enabled: false,
+            onTap: () {},
+            padding: padBottom(),
+          ),
           CAutocomplete(
             onChange: (value) {
               logs(value);
             },
             data: Dummy.fruits,
             initialValue: Dummy.fruits[0],
-            padding: EdgeInsets.all(12),
+            padding: padBottom(),
             label: "Fruit",
             saveHistory: true,
             showHistory: true,
@@ -66,12 +95,12 @@ class _PageHomeState extends State<PageHome> {
             onChange: (value) {
               print("change: $value");
             },
-            padding: EdgeInsets.all(12),
+            padding: padBottom(),
             readOnly: true,
           ),
           CTextFieldNumber(
             label: "Price",
-            padding: EdgeInsets.all(12),
+            padding: padBottom(),
             initialValue: "12000",
             digits: 2,
             onChange: (value) {
@@ -85,7 +114,7 @@ class _PageHomeState extends State<PageHome> {
             onChange: (value) {
               print("change: $value");
             },
-            padding: EdgeInsets.all(12),
+            padding: padBottom(),
             readOnly: true,
           ),
         ],

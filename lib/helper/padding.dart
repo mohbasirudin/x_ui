@@ -1,35 +1,36 @@
 import 'package:flutter/cupertino.dart';
+import 'package:x_ui/helper/helper.dart';
 
 padZero() {
   return EdgeInsets.zero;
 }
 
-padAll(double value){
-  return EdgeInsets.all(value);
+padAll({double? v}){
+  return EdgeInsets.all(v??padding());
 }
 
-padLeft(double value) {
-  return EdgeInsets.only(left: value);
+padLeft({double? v}) {
+  return EdgeInsets.only(left: v??padding());
 }
 
-padRight(double value) {
-  return EdgeInsets.only(right: value);
+padRight({double? v}) {
+  return EdgeInsets.only(right: v??padding());
 }
 
-padTop(double value) {
-  return EdgeInsets.only(top: value);
+padTop({double? v}) {
+  return EdgeInsets.only(top: v??padding());
 }
 
-padBottom(double value) {
-  return EdgeInsets.only(bottom: value);
+padBottom({double? v}) {
+  return EdgeInsets.only(bottom: v??padding());
 }
 
-padVertical(double value) {
-  return EdgeInsets.symmetric(vertical: value);
+padVertical({double? v}) {
+  return EdgeInsets.symmetric(vertical: v??padding());
 }
 
-padHorizontal(double value) {
-  return EdgeInsets.symmetric(horizontal: value);
+padHorizontal({double? v}) {
+  return EdgeInsets.symmetric(horizontal: v??padding());
 }
 
 padSymmetric({double v = 0, double h = 0}) {

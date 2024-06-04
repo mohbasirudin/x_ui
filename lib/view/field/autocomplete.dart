@@ -69,7 +69,7 @@ class _CAutocompleteState extends State<CAutocomplete> {
         child: Text(
           value,
           style: TextStyle(
-            fontSize: widget.fontSize ?? FontSize.medium,
+            fontSize: widget.fontSize ?? FontSize.medium(),
           ),
         ),
       ),
@@ -259,7 +259,7 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
     return Row(
       children: [
         Padding(
-          padding: padRight(8),
+          padding: padRight(),
           child: Center(
             child: Icon(
               isLocal ? Icons.history_outlined : Icons.search_outlined,
@@ -284,7 +284,7 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
           ),
         ),
         Padding(
-          padding: padLeft(8),
+          padding: padLeft(),
           child: isLocal
               ? GestureDetector(
                   onTap: () async {
