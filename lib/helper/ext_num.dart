@@ -12,4 +12,8 @@ extension ExtNum on num {
   double percent(num from) {
     return (this / 100) * from;
   }
+
+  double from(num value) {
+    return percent(value);
+  }
 }

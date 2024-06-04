@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:x_ui/helper/colors.dart';
+import 'package:x_ui/helper/const.dart';
 import 'package:x_ui/helper/ext_num.dart';
 import 'package:x_ui/helper/helper.dart';
 import 'package:x_ui/helper/padding.dart';
@@ -66,7 +66,12 @@ class _CAutocompleteState extends State<CAutocomplete> {
 
           openDialog(context);
         },
-        child: Text(value),
+        child: Text(
+          value,
+          style: TextStyle(
+            fontSize: widget.fontSize ?? FontSize.medium,
+          ),
+        ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:x_ui/const.dart';
+import 'package:x_ui/helper/const.dart';
 import 'package:x_ui/view/field/body.dart';
 import 'package:x_ui/view/field/helper.dart';
 
@@ -98,7 +99,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
             title: Text(
               label,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: FontSize.extraLarge,
                 fontFamily: widget.fontFamily,
               ),
             ),
@@ -122,7 +123,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
               keyboardType: type,
               textInputAction: TextInputAction.done,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: FontSize.extraLarge,
                 fontFamily: widget.fontFamily,
               ),
               onEditingComplete: () {

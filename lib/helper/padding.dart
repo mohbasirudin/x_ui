@@ -4,6 +4,10 @@ padZero() {
   return EdgeInsets.zero;
 }
 
+padAll(double value){
+  return EdgeInsets.all(value);
+}
+
 padLeft(double value) {
   return EdgeInsets.only(left: value);
 }

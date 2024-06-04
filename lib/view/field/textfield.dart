@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:x_ui/const.dart';
+import 'package:x_ui/helper/colors.dart';
+import 'package:x_ui/helper/const.dart';
 import 'package:x_ui/view/field/body.dart';
 import 'package:x_ui/view/field/helper.dart';
 
@@ -79,11 +81,17 @@ class _CTextFieldState extends State<CTextField> {
         style: TextStyle(
           fontSize: widget.fontSize ?? FontSize.medium,
           fontFamily: widget.fontFamily,
+          fontWeight: FontWeight.w400,
         ),
         enabled: !widget.readOnly,
         decoration: InputDecoration(
           hintText: widget.hint,
           isCollapsed: true,
+          hintStyle: TextStyle(
+            fontSize: widget.fontSize ?? FontSize.medium,
+            color: XColors.disabled,
+            fontWeight: FontWeight.w400,
+          ),
           border: HelperTextField.noBorder(),
           disabledBorder: HelperTextField.noBorder(),
           enabledBorder: HelperTextField.noBorder(),

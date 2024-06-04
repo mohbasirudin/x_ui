@@ -1,63 +1,34 @@
-// import 'package:flutter/material.dart';
-// import 'package:x_ui/const.dart';
-// import 'package:x_ui/styles.dart';
-//
-// class XButtonElevated extends StatefulWidget {
-//   final EdgeInsets padding;
-//   final String text;
-//   final Function()? onTap;
-//   final bool enable;
-//   final double width;
-//   final double height;
-//   final Color colorText;
-//   final double fontSize;
-//   final Color colorEnable;
-//   final Color colorDisable;
-//
-//   const XButtonElevated({
-//     super.key,
-//     required this.text,
-//     this.padding = EdgeInsets.zero,
-//     this.onTap,
-//     this.enable = true,
-//     this.width = BaseData.buttonWidth,
-//     this.height = BaseData.buttonHeight,
-//     this.colorText = BaseColor.btnText,
-//     this.fontSize = FontSize.medium,
-//     this.colorEnable = BaseColor.enable,
-//     this.colorDisable = BaseColor.disable,
-//   });
-//
-//   @override
-//   State<XButtonElevated> createState() => _XButtonElevatedState();
-// }
-//
-// class _XButtonElevatedState extends State<XButtonElevated> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: widget.padding,
-//       child: InkWell(
-//         onTap: widget.onTap,
-//         child: Material(
-//           color: widget.enable ? widget.colorEnable : widget.colorDisable,
-//           child: SizedBox(
-//             width: widget.width,
-//             height: widget.height,
-//             child: Center(
-//               child: Text(
-//                 widget.text,
-//                 style: StyleText.btn(
-//                   color: widget.enable
-//                       ? widget.colorText
-//                       : BaseColor.btnTextDisable,
-//                   fontSize: widget.fontSize,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:flutter/material.dart';
+
+class CButtonElevated extends StatefulWidget {
+  const CButtonElevated({super.key});
+
+  @override
+  State<CButtonElevated> createState() => _CButtonElevatedState();
+}
+
+class _CButtonElevatedState extends State<CButtonElevated> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12),
+      child: Material(
+        color: Colors.blue,
+        child: InkWell(
+          splashColor: Colors.blue.withOpacity(0.1),
+          onTap: () {
+          },
+          child: SizedBox(
+            height: 48,
+            width: double.infinity,
+            child: Center(
+              child: Text("Submit",style: TextStyle(
+                color: Colors.white,
+              ),),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

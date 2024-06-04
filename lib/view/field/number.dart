@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:intl/intl.dart';
+import 'package:x_ui/helper/const.dart';
 import 'package:x_ui/view/field/body.dart';
 import 'package:x_ui/view/field/helper.dart';
 
@@ -88,6 +89,7 @@ class _CTextFieldNumberState extends State<CTextFieldNumber> {
         enabled: !widget.readOnly,
         style: TextStyle(
           fontFamily: widget.fontFamily,
+          fontSize: widget.fontSize ?? FontSize.medium,
         ),
         decoration: InputDecoration(
           isCollapsed: true,
