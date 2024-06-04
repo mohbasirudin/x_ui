@@ -2,10 +2,10 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:x_ui/helper/ext_num.dart';
+import 'package:bee_ui/helper/ext_num.dart';
 
 void logs(var message) {
-  log(">> [x_ui] : $message");
+  log(">> [bee_ui] : $message");
 }
 
 class Screen {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:x_ui/helper/const.dart';
-import 'package:x_ui/helper/helper.dart';
+import 'package:bee_ui/helper/helper.dart';
 
-class TextFieldBody extends StatefulWidget {
+class XTextFieldBody extends StatefulWidget {
   final String label;
   final Widget child;
   final Widget? rightIcon;
@@ -11,7 +10,7 @@ class TextFieldBody extends StatefulWidget {
   final bool readOnly;
   final String? fontFamily;
 
-  const TextFieldBody({
+  const XTextFieldBody({
     this.label = "",
     required this.child,
     this.rightIcon,
@@ -23,10 +22,10 @@ class TextFieldBody extends StatefulWidget {
   });
 
   @override
-  State<TextFieldBody> createState() => _TextFieldBodyState();
+  State<XTextFieldBody> createState() => _XTextFieldBodyState();
 }
 
-class _TextFieldBodyState extends State<TextFieldBody> {
+class _XTextFieldBodyState extends State<XTextFieldBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(

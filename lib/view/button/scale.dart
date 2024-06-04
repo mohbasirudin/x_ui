@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CButtonScale extends StatefulWidget {
-  const CButtonScale({super.key});
+class XButtonScale extends StatefulWidget {
+  const XButtonScale({super.key});
 
   @override
-  State<CButtonScale> createState() => _CButtonScaleState();
+  State<XButtonScale> createState() => _XButtonScaleState();
 }
 
-class _CButtonScaleState extends State<CButtonScale>
+class _XButtonScaleState extends State<XButtonScale>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {

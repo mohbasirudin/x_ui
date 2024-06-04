@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:x_ui/helper/colors.dart';
-import 'package:x_ui/helper/helper.dart';
-import 'package:x_ui/helper/padding.dart';
+import 'package:bee_ui/helper/colors.dart';
+import 'package:bee_ui/helper/helper.dart';
+import 'package:bee_ui/helper/padding.dart';
 
-class CButtonElevated extends StatefulWidget {
+class XButtonElevated extends StatefulWidget {
   final String text;
   final Function() onTap;
   final bool enabled;
@@ -11,7 +11,7 @@ class CButtonElevated extends StatefulWidget {
   final double? radius;
   final bool rounded;
 
-  const CButtonElevated({
+  const XButtonElevated({
     required this.text,
     required this.onTap,
     this.enabled = true,
@@ -22,10 +22,10 @@ class CButtonElevated extends StatefulWidget {
   });
 
   @override
-  State<CButtonElevated> createState() => _CButtonElevatedState();
+  State<XButtonElevated> createState() => _XButtonElevatedState();
 }
 
-class _CButtonElevatedState extends State<CButtonElevated> {
+class _XButtonElevatedState extends State<XButtonElevated> {
   @override
   Widget build(BuildContext context) {
     var enabled = widget.enabled;

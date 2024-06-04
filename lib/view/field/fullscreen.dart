@@ -1,13 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:x_ui/const.dart';
-import 'package:x_ui/helper/const.dart';
-import 'package:x_ui/helper/helper.dart';
-import 'package:x_ui/view/field/body.dart';
-import 'package:x_ui/view/field/helper.dart';
+import 'package:bee_ui/helper/helper.dart';
+import 'package:bee_ui/view/field/body.dart';
+import 'package:bee_ui/view/field/helper.dart';
 
-class CTextFieldFullscreen extends StatefulWidget {
+class XTextFieldFullscreen extends StatefulWidget {
   final String label;
   final String hint;
   final String initialValue;
@@ -18,7 +16,7 @@ class CTextFieldFullscreen extends StatefulWidget {
   final bool readOnly;
   final String? fontFamily;
 
-  const CTextFieldFullscreen({
+  const XTextFieldFullscreen({
     this.label = "",
     this.hint = "",
     this.initialValue = "",
@@ -32,10 +30,10 @@ class CTextFieldFullscreen extends StatefulWidget {
   });
 
   @override
-  State<CTextFieldFullscreen> createState() => _CTextFieldFullscreenState();
+  State<XTextFieldFullscreen> createState() => _XTextFieldFullscreenState();
 }
 
-class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
+class _XTextFieldFullscreenState extends State<XTextFieldFullscreen> {
   final TextEditingController controller = TextEditingController();
   var value = "";
 
@@ -58,7 +56,7 @@ class _CTextFieldFullscreenState extends State<CTextFieldFullscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldBody(
+    return XTextFieldBody(
       label: widget.label,
       readOnly: widget.readOnly,
       padding: widget.padding,

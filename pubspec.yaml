@@ -1,7 +1,7 @@
-name: x_ui
-description: "A new Flutter plugin project."
+name: bee_ui
+description: "A simple package for some ui"
 version: 0.0.1
-homepage:
+homepage: https://github.com/mohbasirudin/x_ui
 
 environment:
   sdk: '>=3.2.2 <4.0.0'

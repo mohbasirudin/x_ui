@@ -1,14 +1,12 @@
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:intl/intl.dart';
-import 'package:x_ui/helper/const.dart';
-import 'package:x_ui/helper/helper.dart';
-import 'package:x_ui/view/field/body.dart';
-import 'package:x_ui/view/field/helper.dart';
+import 'package:bee_ui/helper/helper.dart';
+import 'package:bee_ui/view/field/body.dart';
+import 'package:bee_ui/view/field/helper.dart';
 
-class CTextFieldNumber extends StatefulWidget {
+class XTextFieldNumber extends StatefulWidget {
   final String label;
   final String hint;
   final String initialValue;
@@ -19,7 +17,7 @@ class CTextFieldNumber extends StatefulWidget {
   final bool readOnly;
   final String? fontFamily;
 
-  const CTextFieldNumber({
+  const XTextFieldNumber({
     this.label = "",
     this.hint = "",
     this.initialValue = "",
@@ -33,10 +31,10 @@ class CTextFieldNumber extends StatefulWidget {
   });
 
   @override
-  State<CTextFieldNumber> createState() => _CTextFieldNumberState();
+  State<XTextFieldNumber> createState() => _XTextFieldNumberState();
 }
 
-class _CTextFieldNumberState extends State<CTextFieldNumber> {
+class _XTextFieldNumberState extends State<XTextFieldNumber> {
   // final controller = MaskedTextController(mask: "0.000.000.000");
   final controller = TextEditingController();
   CurrencyTextInputFormatter? currencyFormat;
@@ -75,7 +73,7 @@ class _CTextFieldNumberState extends State<CTextFieldNumber> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldBody(
+    return XTextFieldBody(
       padding: widget.padding,
       readOnly: widget.readOnly,
       label: widget.label,

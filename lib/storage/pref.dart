@@ -1,5 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:x_ui/helper/helper.dart';
+import 'package:bee_ui/helper/helper.dart';
 
 class PrefKeys {
   static String list(String label) {

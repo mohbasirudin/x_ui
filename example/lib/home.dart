@@ -66,19 +66,19 @@ class _PageHomeState extends State<PageHome> {
               ],
             ),
           ),
-          CButtonElevated(
+          XButtonElevated(
             text: "Submit",
             onTap: () {},
             padding: padBottom(),
             radius: 12,
           ),
-          CButtonElevated(
+          XButtonElevated(
             text: "Submit",
             enabled: false,
             onTap: () {},
             padding: padBottom(),
           ),
-          CAutocomplete(
+          XAutocomplete(
             onChange: (value) {
               logs(value);
             },
@@ -89,7 +89,7 @@ class _PageHomeState extends State<PageHome> {
             saveHistory: true,
             showHistory: true,
           ),
-          CTextField(
+          XTextField(
             label: "Note",
             initialValue: "Apa",
             onChange: (value) {
@@ -98,7 +98,7 @@ class _PageHomeState extends State<PageHome> {
             padding: padBottom(),
             readOnly: true,
           ),
-          CTextFieldNumber(
+          XTextFieldNumber(
             label: "Price",
             padding: padBottom(),
             initialValue: "12000",
@@ -108,7 +108,7 @@ class _PageHomeState extends State<PageHome> {
             },
             readOnly: true,
           ),
-          CTextFieldFullscreen(
+          XTextFieldFullscreen(
             label: "Note",
             initialValue: "ini baru",
             onChange: (value) {

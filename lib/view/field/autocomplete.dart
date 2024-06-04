@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:x_ui/helper/const.dart';
-import 'package:x_ui/helper/ext_num.dart';
-import 'package:x_ui/helper/helper.dart';
-import 'package:x_ui/helper/padding.dart';
-import 'package:x_ui/storage/pref.dart';
-import 'package:x_ui/view/field/body.dart';
-import 'package:x_ui/view/field/textfield.dart';
+import 'package:bee_ui/helper/ext_num.dart';
+import 'package:bee_ui/helper/helper.dart';
+import 'package:bee_ui/helper/padding.dart';
+import 'package:bee_ui/storage/pref.dart';
+import 'package:bee_ui/view/field/body.dart';
+import 'package:bee_ui/view/field/textfield.dart';
 
-class CAutocomplete extends StatefulWidget {
+class XAutocomplete extends StatefulWidget {
   final String label;
   final String hint;
   final String initialValue;
@@ -21,7 +20,7 @@ class CAutocomplete extends StatefulWidget {
   final List<String> data;
   final String? fontFamily;
 
-  const CAutocomplete({
+  const XAutocomplete({
     this.label = "",
     this.hint = "",
     this.initialValue = "",
@@ -38,10 +37,10 @@ class CAutocomplete extends StatefulWidget {
   });
 
   @override
-  State<CAutocomplete> createState() => _CAutocompleteState();
+  State<XAutocomplete> createState() => _XAutocompleteState();
 }
 
-class _CAutocompleteState extends State<CAutocomplete> {
+class _XAutocompleteState extends State<XAutocomplete> {
   var value = "";
 
   @override
@@ -54,7 +53,7 @@ class _CAutocompleteState extends State<CAutocomplete> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldBody(
+    return XTextFieldBody(
       readOnly: widget.readOnly,
       padding: widget.padding,
       label: widget.label,
@@ -117,7 +116,6 @@ class _DialogAutocomplete extends StatefulWidget {
 class _DialogAutocompleteState extends State<_DialogAutocomplete> {
   final List<ModelItem> _datas = [];
   final List<ModelItem> _localDatas = [];
-  String _search = "";
   double _iconSize = 0.0;
 
   @override
@@ -131,7 +129,6 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
   Future<void> _init() async {
     var key = PrefKeys.list(widget.label);
     var locals = await PrefStorage.storeList(key);
-    // var _locals = <ModelItem>[];
     if (_datas.isNotEmpty) _datas.clear();
     if (_localDatas.isNotEmpty) _localDatas.clear();
     for (var i = 0; i < locals.length; i++) {
@@ -156,7 +153,6 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
       await _init();
       return;
     }
-    _search = value;
     _datas.clear();
     logs(_localDatas.length);
     for (var i = 0; i < _localDatas.length; i++) {
@@ -215,7 +211,7 @@ class _DialogAutocompleteState extends State<_DialogAutocomplete> {
       ),
       body: Column(
         children: [
-          CTextField(
+          XTextField(
             autoFocus: true,
             hint: widget.label,
             onChange: (value) {

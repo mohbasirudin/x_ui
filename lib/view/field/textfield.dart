@@ -1,14 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:x_ui/const.dart';
-import 'package:x_ui/helper/colors.dart';
-import 'package:x_ui/helper/const.dart';
-import 'package:x_ui/helper/helper.dart';
-import 'package:x_ui/view/field/body.dart';
-import 'package:x_ui/view/field/helper.dart';
+import 'package:bee_ui/helper/colors.dart';
+import 'package:bee_ui/helper/helper.dart';
+import 'package:bee_ui/view/field/body.dart';
+import 'package:bee_ui/view/field/helper.dart';
 
-class CTextField extends StatefulWidget {
+class XTextField extends StatefulWidget {
   final String label;
   final String hint;
   final String initialValue;
@@ -20,7 +18,7 @@ class CTextField extends StatefulWidget {
   final bool autoFocus;
   final String? fontFamily;
 
-  const CTextField({
+  const XTextField({
     this.label = "",
     this.hint = "",
     this.initialValue = "",
@@ -35,10 +33,10 @@ class CTextField extends StatefulWidget {
   });
 
   @override
-  State<CTextField> createState() => _CTextFieldState();
+  State<XTextField> createState() => _XTextFieldState();
 }
 
-class _CTextFieldState extends State<CTextField> {
+class _XTextFieldState extends State<XTextField> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -68,7 +66,7 @@ class _CTextFieldState extends State<CTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldBody(
+    return XTextFieldBody(
       label: widget.label,
       padding: widget.padding,
       readOnly: widget.readOnly,
