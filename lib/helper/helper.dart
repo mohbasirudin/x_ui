@@ -1,71 +1,40 @@
-import 'dart:developer';
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
-import 'package:flutter/cupertino.dart';
-import 'package:bee_ui/helper/ext_num.dart';
+class Helper {
+  static double? _buttonHeight;
+  static Color? _primaryColor;
+  static Color? _disabledColor;
+  static String? _fontFamily;
 
-void logs(var message) {
-  log(">> [bee_ui] : $message");
-}
-
-class Screen {
-  static Size _size() {
-    return MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;
+  void setPrimaryColor({Color? value}) {
+    _primaryColor = value;
   }
 
-  static double _width() {
-    return isPortrait() ? width() : (width() * 0.75);
+  Color getPrimaryColor() {
+    return _primaryColor ?? Colors.green;
   }
 
-  static orientation() {
-    return MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-        .orientation;
+  void setDisabledColor({Color? value}) {
+    _disabledColor = value;
   }
 
-  static double w() {
-    return _size().width;
+  Color getDisabledColor() {
+    return _disabledColor ?? Colors.blueGrey;
   }
 
-  static double h() {
-    return _size().height;
-  }
-}
-
-bool isPortrait() {
-  return Screen.orientation() == Orientation.portrait;
-}
-
-double width() => Screen.w();
-
-double height() => Screen.h();
-
-double padding() {
-  var value = (3).from(Screen._width());
-  logs("padding: $value");
-  return value;
-}
-
-double buttonHeight() {
-  var value = 10.from(Screen._width());
-  logs("button height: $value");
-  return value;
-}
-
-class FontSize {
-  static double _size(double v) {
-    var value = Screen._width();
-    return v.from(value);
+  void setButtonHeight({double? value}) {
+    _buttonHeight = value;
   }
 
-  static double small() {
-    return _size(3);
+  double getButtonHeight() {
+    return _buttonHeight ?? 48;
   }
 
-  static double medium() {
-    return _size(4);
+  void setFontFamily({String? value}) {
+    _fontFamily = value;
   }
 
-  static double large() {
-    return _size(5);
+  String getFontFamily() {
+    return _fontFamily ?? "";
   }
 }

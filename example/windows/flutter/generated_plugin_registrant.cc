@@ -6,7 +6,7 @@
 
 #include "generated_plugin_registrant.h"
 
-#include <x_ui/x_ui_plugin_c_api.h>
+#include <bee_ui/x_ui_plugin_c_api.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
   XUiPluginCApiRegisterWithRegistrar(

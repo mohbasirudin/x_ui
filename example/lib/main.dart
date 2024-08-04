@@ -1,22 +1,16 @@
+import 'package:bee_ui/init.dart';
 import 'package:flutter/material.dart';
 import 'package:x_ui_example/home.dart';
 
-void main()=>runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  await BeeUi().initialized(
+    primaryColor: Colors.blue,
+    buttonHeight: 48,
+  );
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: PageHome(
-
-      ),
-    );
-  }
+  runApp(const MaterialApp(
+    home: PageHome(),
+  ));
 }

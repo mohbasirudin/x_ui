@@ -17,7 +17,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  x_ui:
+#  x_ui:
+#    path: ../
+
+  bee_ui:
     # When depending on this package from a real application you should use:
     #   x_ui: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

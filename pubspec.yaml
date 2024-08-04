@@ -1,6 +1,6 @@
 name: bee_ui
 description: "A simple package for some ui"
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/mohbasirudin/x_ui
 
 environment:
@@ -12,10 +12,10 @@ dependencies:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
 
-  flutter_masked_text2: ^0.9.1
-  intl: ^0.19.0
-  currency_text_input_formatter: ^2.2.3
-  shared_preferences: ^2.2.3
+#  flutter_masked_text2: ^0.9.1
+#  intl: ^0.19.0
+#  currency_text_input_formatter: ^2.2.3
+#  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

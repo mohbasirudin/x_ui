@@ -1,61 +1,59 @@
+import 'dart:ui';
+
+import 'package:bee_ui/extension/widget.dart';
+import 'package:bee_ui/init.dart';
+import 'package:bee_ui/view/text/text.dart';
 import 'package:flutter/material.dart';
-import 'package:bee_ui/helper/colors.dart';
-import 'package:bee_ui/helper/helper.dart';
-import 'package:bee_ui/helper/padding.dart';
 
-class XButtonElevated extends StatefulWidget {
+class BeeButtonElevated extends StatefulWidget {
   final String text;
-  final Function() onTap;
-  final bool enabled;
   final EdgeInsets? padding;
+  final bool enabled;
+  final Function() onTap;
+  final Color? color;
+  final double? height;
   final double? radius;
-  final bool rounded;
+  final Color? colorText;
+  final Color? disabledColor;
 
-  const XButtonElevated({
-    required this.text,
-    required this.onTap,
-    this.enabled = true,
+  const BeeButtonElevated(
+    this.text, {
     this.padding,
+    this.enabled = true,
+    required this.onTap,
+    this.color,
+    this.height,
     this.radius,
-    this.rounded = false,
+    this.colorText,
+    this.disabledColor,
     super.key,
   });
 
   @override
-  State<XButtonElevated> createState() => _XButtonElevatedState();
+  State<BeeButtonElevated> createState() => _BeeButtonElevatedState();
 }
 
-class _XButtonElevatedState extends State<XButtonElevated> {
+class _BeeButtonElevatedState extends State<BeeButtonElevated> {
+  final _helper = Helper();
+
   @override
   Widget build(BuildContext context) {
     var enabled = widget.enabled;
-    return Padding(
-      padding: widget.padding ?? padZero(),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(
-          widget.radius ?? 0,
-        ),
-        child: Material(
-          color: enabled ? XColors.enable : XColors.disabled,
-          child: InkWell(
-            splashColor: Colors.blue.withOpacity(0.1),
-            onTap: enabled ? widget.onTap : null,
-            child: SizedBox(
-              height: buttonHeight(),
-              width: double.infinity,
-              child: Center(
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: FontSize.medium(),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+    var enabledColor = widget.color ?? _helper.getPrimaryColor();
+    var disabledColor = widget.disabledColor ?? _helper.getDisabledColor();
+    var color = enabled ? enabledColor : disabledColor;
+
+    return BeeText(
+      widget.text,
+      textAlign: TextAlign.center,
+      color: widget.colorText ?? Colors.white,
+    )
+        .onTapAnimation(
+          enabled ? widget.onTap : null,
+          color: color,
+          height: widget.height ?? _helper.getButtonHeight(),
+        )
+        .radiusAll(widget.radius)
+        .padding(widget.padding);
   }
 }

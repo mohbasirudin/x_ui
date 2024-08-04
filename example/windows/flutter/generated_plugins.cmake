@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  x_ui
+  bee_ui
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
