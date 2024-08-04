@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 
-EdgeInsets paddingLeft(double value) {
-  return EdgeInsets.only(left: value);
+var _padding = 12.0;
+
+EdgeInsets paddingLeft({double? value}) {
+  return EdgeInsets.only(left: value??_padding);
 }
 
-EdgeInsets paddingRight(double value) {
-  return EdgeInsets.only(right: value);
+EdgeInsets paddingRight({double? value}) {
+  return EdgeInsets.only(right: value??_padding);
 }
 
-EdgeInsets paddingTop(double value) {
-  return EdgeInsets.only(top: value);
+EdgeInsets paddingTop({double? value}) {
+  return EdgeInsets.only(top: value??_padding);
 }
 
-EdgeInsets paddingBottom(double value) {
-  return EdgeInsets.only(bottom: value);
+EdgeInsets paddingBottom({double? value}) {
+  return EdgeInsets.only(bottom: value??_padding);
 }
 
 EdgeInsets paddingSymmetric({
-  required double vertical,
-  required double horizontal,
+  required double? vertical,
+  required double? horizontal,
 }) {
   return EdgeInsets.symmetric(
-    vertical: vertical,
-    horizontal: horizontal,
+    vertical: vertical??_padding,
+    horizontal: horizontal??_padding,
   );
 }
 
-EdgeInsets paddingAll(double value) {
-  return EdgeInsets.all(value);
+EdgeInsets paddingAll(double? value) {
+  return EdgeInsets.all(value??_padding);
 }
 
 EdgeInsets paddingZero() {

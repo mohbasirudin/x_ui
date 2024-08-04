@@ -29,6 +29,10 @@ extension ExtWidget on Widget {
     );
   }
 
+  Center center() {
+    return Center(child: this);
+  }
+
   // radius
   ClipRRect radius(BorderRadius? radius) {
     return ClipRRect(
