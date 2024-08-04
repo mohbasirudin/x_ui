@@ -47,6 +47,7 @@ class _BeeButtonOutlinedState extends State<BeeButtonOutlined> {
         borderRadius: radiusAll(),
         border: Border.all(
           color: color,
+          width: _helper.getOutlinedSize(),
         ),
       ),
       child: BeeText(

@@ -9,6 +9,7 @@ class BeeUi {
     double? buttonHeight,
     String? fontFamily,
     Color? disabledColor,
+    double? outlinedSize,
   }) async {
     Helper helper = Helper();
 
@@ -16,5 +17,6 @@ class BeeUi {
     helper.setButtonHeight(value: buttonHeight);
     helper.setFontFamily(value: fontFamily);
     helper.setDisabledColor(value: disabledColor);
+    helper.setOutlinedSize(value: outlinedSize);
   }
 }

@@ -14,11 +14,13 @@ extension ExtWidget on Widget {
     Function()? tap, {
     Color? color,
     double? height,
+    double? width,
   }) {
     return Material(
       color: color,
       child: SizedBox(
         height: height,
+        width: width,
         child: InkWell(
           onTap: tap,
           child: Center(

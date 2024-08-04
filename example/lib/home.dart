@@ -1,5 +1,6 @@
 import 'package:bee_ui/helper/padding.dart';
 import 'package:bee_ui/view/button/elevated.dart';
+import 'package:bee_ui/view/button/icon_data.dart';
 import 'package:bee_ui/view/button/outlined.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,14 @@ class _PageHomeState extends State<PageHome> {
             "Button Outlined",
             onTap: () {},
             padding: paddingBottom(),
+          ),
+          Row(
+            children: [
+              BeeButtonIcon(
+                Icons.add,
+                onTap: () {},
+              ),
+            ],
           ),
         ],
       ),

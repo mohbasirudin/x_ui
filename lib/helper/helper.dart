@@ -5,6 +5,7 @@ class Helper {
   static Color? _primaryColor;
   static Color? _disabledColor;
   static String? _fontFamily;
+  static double? _outlinedSize;
 
   void setPrimaryColor({Color? value}) {
     _primaryColor = value;
@@ -36,5 +37,13 @@ class Helper {
 
   String getFontFamily() {
     return _fontFamily ?? "";
+  }
+
+  void setOutlinedSize({double? value}) {
+    _outlinedSize = value;
+  }
+
+  double getOutlinedSize() {
+    return _outlinedSize ?? 1.2;
   }
 }
