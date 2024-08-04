@@ -1,3 +1,4 @@
+import 'package:bee_ui/helper/padding.dart';
 import 'package:bee_ui/view/button/elevated.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class _PageHomeState extends State<PageHome> {
         title: Text("Test"),
       ),
       body: ListView(
-        padding: EdgeInsets.all(12),
+        padding: paddingAll(12),
         children: [
           BeeButtonElevated(
             "Button Elevated",
