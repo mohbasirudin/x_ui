@@ -11,6 +11,7 @@ class BeeButtonIcon extends StatefulWidget {
   final EdgeInsets? padding;
   final bool enabled;
   final Function() onTap;
+  final Color? disabledColor;
 
   const BeeButtonIcon(
     this.icon, {
@@ -21,6 +22,7 @@ class BeeButtonIcon extends StatefulWidget {
     this.padding,
     this.enabled = true,
     required this.onTap,
+    this.disabledColor,
     super.key,
   });
 
@@ -36,8 +38,10 @@ class _BeeButtonIconState extends State<BeeButtonIcon> {
     var enabled = widget.enabled;
     var size = widget.size ?? _helper.getButtonHeight();
     var backgroundColor = widget.backgroundColor ?? _helper.getPrimaryColor();
+    var disabledColor = widget.disabledColor ?? _helper.getDisabledColor();
+    var color = enabled ? backgroundColor : disabledColor;
     var iconColor = widget.iconColor ?? Colors.white;
-    return Container(
+    return SizedBox(
       width: size,
       height: size,
       child: Icon(
@@ -49,7 +53,7 @@ class _BeeButtonIconState extends State<BeeButtonIcon> {
           enabled ? widget.onTap : null,
           height: size,
           width: size,
-          color: backgroundColor,
+          color: color,
         )
         .radiusAll(widget.radius)
         .padding(widget.padding);

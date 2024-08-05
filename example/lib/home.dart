@@ -1,7 +1,10 @@
+import 'package:bee_ui/extension/widget.dart';
 import 'package:bee_ui/helper/padding.dart';
 import 'package:bee_ui/view/button/elevated.dart';
 import 'package:bee_ui/view/button/icon_data.dart';
 import 'package:bee_ui/view/button/outlined.dart';
+import 'package:bee_ui/view/button/text.dart';
+import 'package:bee_ui/view/filed/textfield.dart';
 import 'package:flutter/material.dart';
 
 class PageHome extends StatefulWidget {
@@ -12,6 +15,9 @@ class PageHome extends StatefulWidget {
 }
 
 class _PageHomeState extends State<PageHome> {
+  final fnField = FocusNode();
+  final conField = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +26,7 @@ class _PageHomeState extends State<PageHome> {
         title: Text("Bee UI"),
       ),
       body: ListView(
-        padding: paddingAll(12),
+        padding: paddingAll(),
         children: [
           BeeButtonElevated(
             "Button Elevated",
@@ -39,6 +45,24 @@ class _PageHomeState extends State<PageHome> {
                 onTap: () {},
               ),
             ],
+          ).padding(paddingBottom()),
+          BeeButtonText(
+            "Button Text",
+            onTap: () {},
+            padding: paddingBottom(),
+          ),
+          BeeTextfield(
+            label: "Textfield",
+            borderRadius: 8,
+            padding: paddingBottom(),
+            focusNode: fnField,
+            controller: conField,
+            hint: "ex: John",
+            onChanged: (v) {},
+          ),
+          BeeTextfield(
+            borderRadius: 8,
+            padding: paddingBottom(),
           ),
         ],
       ),

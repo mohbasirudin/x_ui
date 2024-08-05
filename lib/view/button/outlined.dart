@@ -43,7 +43,6 @@ class _BeeButtonOutlinedState extends State<BeeButtonOutlined> {
       width: double.infinity,
       height: height,
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: radiusAll(),
         border: Border.all(
           color: color,
@@ -59,6 +58,7 @@ class _BeeButtonOutlinedState extends State<BeeButtonOutlined> {
         .onTapAnimation(
           enabled ? widget.onTap : null,
           height: height,
+          color: Colors.white,
         )
         .radiusAll(widget.radius)
         .padding(widget.padding);

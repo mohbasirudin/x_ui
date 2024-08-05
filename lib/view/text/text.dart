@@ -1,4 +1,5 @@
 import 'package:bee_ui/extension/widget.dart';
+import 'package:bee_ui/helper/helper.dart';
 import 'package:flutter/material.dart';
 
 class BeeText extends StatefulWidget {
@@ -24,14 +25,16 @@ class BeeText extends StatefulWidget {
 }
 
 class _BeeTextState extends State<BeeText> {
+  final _helper = Helper();
+
   @override
   Widget build(BuildContext context) {
     return Text(
       widget.text,
       textAlign: widget.textAlign,
       style: TextStyle(
-        color: widget.color,
-        fontSize: widget.fontSize,
+        color: widget.color ?? _helper.getTextColor(),
+        fontSize: widget.fontSize ?? _helper.getFontSize(),
         fontWeight: widget.fontWeight,
       ),
     ).padding(widget.padding);

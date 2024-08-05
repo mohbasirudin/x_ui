@@ -10,6 +10,13 @@ extension ExtWidget on Widget {
     );
   }
 
+  Visibility show(bool value) {
+    return Visibility(
+      visible: value,
+      child: this,
+    );
+  }
+
   Widget onTapAnimation(
     Function()? tap, {
     Color? color,

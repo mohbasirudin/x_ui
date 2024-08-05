@@ -10,6 +10,10 @@ class BeeUi {
     String? fontFamily,
     Color? disabledColor,
     double? outlinedSize,
+    double? fontSize,
+    Color? outlinedColor,
+    Color? errorColor,
+    Color? textColor,
   }) async {
     Helper helper = Helper();
 
@@ -18,5 +22,9 @@ class BeeUi {
     helper.setFontFamily(value: fontFamily);
     helper.setDisabledColor(value: disabledColor);
     helper.setOutlinedSize(value: outlinedSize);
+    helper.setFontSize(value: fontSize);
+    helper.setOutlinedColor(value: outlinedColor);
+    helper.setErrorColor(value: errorColor);
+    helper.setTextColor(value: textColor);
   }
 }

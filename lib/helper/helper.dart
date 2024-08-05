@@ -6,6 +6,10 @@ class Helper {
   static Color? _disabledColor;
   static String? _fontFamily;
   static double? _outlinedSize;
+  static double? _fontSize;
+  static Color? _outlinedColor;
+  static Color? _errorColor;
+  static Color? _textColor;
 
   void setPrimaryColor({Color? value}) {
     _primaryColor = value;
@@ -20,7 +24,7 @@ class Helper {
   }
 
   Color getDisabledColor() {
-    return _disabledColor ?? Colors.blueGrey;
+    return _disabledColor ?? Colors.blueGrey.shade200;
   }
 
   void setButtonHeight({double? value}) {
@@ -45,5 +49,37 @@ class Helper {
 
   double getOutlinedSize() {
     return _outlinedSize ?? 1.2;
+  }
+
+  void setFontSize({double? value}) {
+    _fontSize = value;
+  }
+
+  double getFontSize() {
+    return _fontSize ?? 14;
+  }
+
+  void setOutlinedColor({Color? value}) {
+    _outlinedColor = value;
+  }
+
+  Color getOutlinedColor() {
+    return _outlinedColor ?? Colors.blueGrey;
+  }
+
+  void setErrorColor({Color? value}) {
+    _errorColor = value;
+  }
+
+  Color getErrorColor() {
+    return _errorColor ?? Colors.red;
+  }
+
+  void setTextColor({Color? value}) {
+    _textColor = value;
+  }
+
+  Color getTextColor() {
+    return _textColor ?? Colors.black87;
   }
 }
