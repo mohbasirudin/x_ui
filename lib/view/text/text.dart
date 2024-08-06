@@ -9,6 +9,7 @@ class BeeText extends StatefulWidget {
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final int? maxLines;
 
   const BeeText(
     this.text, {
@@ -17,6 +18,7 @@ class BeeText extends StatefulWidget {
     this.color,
     this.fontSize,
     this.fontWeight,
+    this.maxLines,
     super.key,
   });
 
@@ -29,9 +31,13 @@ class _BeeTextState extends State<BeeText> {
 
   @override
   Widget build(BuildContext context) {
+    var text = widget.text;
+    var maxLines = widget.maxLines ?? (text.isNotEmpty ? text.length : 1);
+
     return Text(
-      widget.text,
+      text,
       textAlign: widget.textAlign,
+      maxLines: maxLines,
       style: TextStyle(
         color: widget.color ?? _helper.getTextColor(),
         fontSize: widget.fontSize ?? _helper.getFontSize(),

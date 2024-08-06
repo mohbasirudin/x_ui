@@ -18,6 +18,8 @@ class BeeTextfield extends StatefulWidget {
   final TextInputType? type;
   final Function(String v)? onChanged;
   final String hint;
+  final IconData? sufficIcon;
+  final String? sufficText;
 
   const BeeTextfield({
     this.controller,
@@ -30,7 +32,8 @@ class BeeTextfield extends StatefulWidget {
     this.type,
     this.onChanged,
     this.hint = "",
-    this.sufficBuilder,
+    this.sufficIcon,
+    this.sufficText,
     super.key,
   });
 
@@ -64,6 +67,30 @@ class _BeeTextfieldState extends State<BeeTextfield> {
   Widget build(BuildContext context) {
     var label = widget.label;
     var fontSize = _helper.getFontSize();
+    var color =
+        hasFocus ? _helper.getPrimaryColor() : _helper.getOutlinedColor();
+
+    Widget? sufficIcon;
+    if (widget.sufficIcon != null) {
+      sufficIcon = IconButton(
+        onPressed: null,
+        icon: Icon(
+          widget.sufficIcon,
+          color: color,
+        ),
+      );
+    }
+    if (widget.sufficText != null) {
+      sufficIcon = IconButton(
+        onPressed: null,
+        icon: BeeText(
+          widget.sufficText ?? "",
+          fontSize: fontSize.scale(0.9),
+          fontWeight: FontWeight.w600,
+          color: color,
+        ),
+      );
+    }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

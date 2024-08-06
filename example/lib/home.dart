@@ -58,11 +58,13 @@ class _PageHomeState extends State<PageHome> {
             focusNode: fnField,
             controller: conField,
             hint: "ex: John",
+            sufficIcon: Icons.visibility,
             onChanged: (v) {},
           ),
           BeeTextfield(
             borderRadius: 8,
             padding: paddingBottom(),
+            sufficText: "IDR",
           ),
         ],
       ),
