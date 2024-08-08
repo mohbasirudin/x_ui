@@ -22,6 +22,8 @@ class BeeTextField extends StatefulWidget {
   final String? hint;
   final IconData? sufficIcon;
   final String? sufficText;
+  final Function()? onTapSuffic;
+  final bool enabled;
 
   const BeeTextField({
     this.controller,
@@ -36,6 +38,8 @@ class BeeTextField extends StatefulWidget {
     this.hint,
     this.sufficIcon,
     this.sufficText,
+    this.onTapSuffic,
+    this.enabled = true,
     super.key,
   });
 
@@ -67,6 +71,8 @@ class _BeeTextFieldState extends State<BeeTextField> {
 
   @override
   Widget build(BuildContext context) {
+    var enabled = widget.enabled;
+
     var label = widget.label;
     var fontSize = _helper.getFontSize();
     var color =
@@ -76,9 +82,20 @@ class _BeeTextFieldState extends State<BeeTextField> {
     Widget? sufficIcon;
     if (widget.sufficIcon != null) {
       sufficIcon = IconButton(
-        onPressed: null,
+        onPressed: enabled ? widget.onTapSuffic : null,
         icon: Icon(
           widget.sufficIcon,
+          color: color,
+        ),
+      );
+    }
+    if (widget.sufficText != null) {
+      sufficIcon = IconButton(
+        onPressed: enabled ? widget.onTapSuffic : null,
+        icon: BeeText(
+          widget.sufficText ?? "",
+          fontSize: fontSize.scale(0.9),
+          fontWeight: FontWeight.w600,
           color: color,
         ),
       );
@@ -94,18 +111,6 @@ class _BeeTextFieldState extends State<BeeTextField> {
       hint = widget.hint ?? "0";
     } else {
       hint = widget.hint ?? "";
-    }
-
-    if (widget.sufficText != null) {
-      sufficIcon = IconButton(
-        onPressed: null,
-        icon: BeeText(
-          widget.sufficText ?? "",
-          fontSize: fontSize.scale(0.9),
-          fontWeight: FontWeight.w600,
-          color: color,
-        ),
-      );
     }
 
     return Column(
@@ -125,6 +130,8 @@ class _BeeTextFieldState extends State<BeeTextField> {
           style: _textStyle(color: _helper.getTextColor()),
           onChanged: widget.onChanged,
           inputFormatters: formatters,
+          enabled: enabled,
+          readOnly: !enabled,
           decoration: InputDecoration(
             isCollapsed: true,
             contentPadding: paddingAll(),

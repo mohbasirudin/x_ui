@@ -21,6 +21,7 @@ class BeeAutocompleted extends StatefulWidget {
   final Color? buttonColor;
   final List<String> data;
   final Function(String value) onChanged;
+  final Color? selectedColor;
 
   const BeeAutocompleted({
     this.label = "",
@@ -31,6 +32,7 @@ class BeeAutocompleted extends StatefulWidget {
     this.buttonColor,
     required this.data,
     required this.onChanged,
+    this.selectedColor,
     super.key,
   });
 
@@ -103,6 +105,7 @@ class _BeeAutocompletedState extends State<BeeAutocompleted> {
                 data,
                 _helper,
                 widget.value,
+                widget.selectedColor,
                 onChanged: widget.onChanged,
               ),
             );
@@ -118,13 +121,15 @@ class _Menu extends StatefulWidget {
   final List<String> data;
   final Helper helper;
   final String value;
+  final Color? selectedColor;
   final Function(String value) onChanged;
 
   const _Menu(
     this.label,
     this.data,
     this.helper,
-    this.value, {
+    this.value,
+    this.selectedColor, {
     required this.onChanged,
     super.key,
   });
@@ -184,6 +189,8 @@ class _MenuState extends State<_Menu> {
             hint: "Search",
             borderRadius: 8,
             onChanged: _setData,
+            sufficIcon: Icons.close,
+            onTapSuffic: () => _setData(""),
             padding: paddingAll(),
           ),
           BeeListSeparated(
@@ -200,13 +207,14 @@ class _MenuState extends State<_Menu> {
     var selected = dataSearch[index].lower() == widget.value.lower();
     var outlinedColor =
         selected ? helper.getPrimaryColor() : helper.getOutlinedColor();
+    var color = widget.selectedColor ?? helper.getPrimaryColor();
     return Container(
       padding: paddingSymmetric(
-        vertical: 4,
+        vertical: 6,
         horizontal: 8,
       ),
       decoration: BoxDecoration(
-        color: selected ? helper.getPrimaryColor() : Colors.white,
+        color: selected ? color : Colors.white,
         borderRadius: radiusAll(),
         border: Border.all(
           color: outlinedColor.withOpacity(0.5),
