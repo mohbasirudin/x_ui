@@ -5,7 +5,7 @@ class Gap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = 12.0;
+    var size = 8.0;
     return SizedBox(
       width: size,
       height: size,

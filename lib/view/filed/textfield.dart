@@ -1,13 +1,15 @@
 import 'package:bee_ui/extension/number.dart';
 import 'package:bee_ui/extension/widget.dart';
+import 'package:bee_ui/helper/formatter/decimal.dart';
 import 'package:bee_ui/helper/helper.dart';
 import 'package:bee_ui/helper/padding.dart';
 import 'package:bee_ui/helper/radius.dart';
 import 'package:bee_ui/view/others/label_field.dart';
 import 'package:bee_ui/view/text/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class BeeTextfield extends StatefulWidget {
+class BeeTextField extends StatefulWidget {
   final TextEditingController? controller;
   final EdgeInsets? padding;
   final String label;
@@ -17,11 +19,11 @@ class BeeTextfield extends StatefulWidget {
   final TextInputAction? action;
   final TextInputType? type;
   final Function(String v)? onChanged;
-  final String hint;
+  final String? hint;
   final IconData? sufficIcon;
   final String? sufficText;
 
-  const BeeTextfield({
+  const BeeTextField({
     this.controller,
     this.padding,
     this.label = "",
@@ -31,17 +33,17 @@ class BeeTextfield extends StatefulWidget {
     this.action,
     this.type,
     this.onChanged,
-    this.hint = "",
+    this.hint,
     this.sufficIcon,
     this.sufficText,
     super.key,
   });
 
   @override
-  State<BeeTextfield> createState() => _BeeTextfieldState();
+  State<BeeTextField> createState() => _BeeTextFieldState();
 }
 
-class _BeeTextfieldState extends State<BeeTextfield> {
+class _BeeTextFieldState extends State<BeeTextField> {
   final _helper = Helper();
   FocusNode? focusNode;
   var hasFocus = false;
@@ -69,6 +71,7 @@ class _BeeTextfieldState extends State<BeeTextfield> {
     var fontSize = _helper.getFontSize();
     var color =
         hasFocus ? _helper.getPrimaryColor() : _helper.getOutlinedColor();
+    var hint = "";
 
     Widget? sufficIcon;
     if (widget.sufficIcon != null) {
@@ -80,6 +83,19 @@ class _BeeTextfieldState extends State<BeeTextfield> {
         ),
       );
     }
+
+    var isNumber = widget.type == TextInputType.number;
+    var formatters = <TextInputFormatter>[];
+    if (isNumber) {
+      formatters = [
+        FilteringTextInputFormatter.allow(RegExp("[0-9,]")),
+        DecimalFormatter(),
+      ];
+      hint = widget.hint ?? "0";
+    } else {
+      hint = widget.hint ?? "";
+    }
+
     if (widget.sufficText != null) {
       sufficIcon = IconButton(
         onPressed: null,
@@ -108,10 +124,11 @@ class _BeeTextfieldState extends State<BeeTextfield> {
           textInputAction: widget.action,
           style: _textStyle(color: _helper.getTextColor()),
           onChanged: widget.onChanged,
+          inputFormatters: formatters,
           decoration: InputDecoration(
             isCollapsed: true,
             contentPadding: paddingAll(),
-            hintText: widget.hint,
+            hintText: hint,
             hintStyle: _textStyle(color: _helper.getOutlinedColor()),
             suffixIcon: sufficIcon,
             // suffix: Icon(Icons.add),

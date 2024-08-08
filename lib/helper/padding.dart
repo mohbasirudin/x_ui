@@ -28,6 +28,22 @@ EdgeInsets paddingSymmetric({
   );
 }
 
+EdgeInsets paddingHorizontal({
+  double? value,
+}) {
+  return EdgeInsets.symmetric(
+    horizontal: value ?? _padding,
+  );
+}
+
+EdgeInsets paddingVertical({
+  required double? value,
+}) {
+  return EdgeInsets.symmetric(
+    vertical: value ?? _padding,
+  );
+}
+
 EdgeInsets paddingAll({double? value}) {
   return EdgeInsets.all(value ?? _padding);
 }

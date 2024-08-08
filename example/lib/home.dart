@@ -1,10 +1,14 @@
+import 'package:bee_ui/extension/dynamic.dart';
 import 'package:bee_ui/extension/widget.dart';
 import 'package:bee_ui/helper/padding.dart';
 import 'package:bee_ui/view/button/elevated.dart';
 import 'package:bee_ui/view/button/icon_data.dart';
 import 'package:bee_ui/view/button/outlined.dart';
 import 'package:bee_ui/view/button/text.dart';
+import 'package:bee_ui/view/filed/autocompleted.dart';
 import 'package:bee_ui/view/filed/textfield.dart';
+import 'package:bee_ui/view/others/gap.dart';
+import 'package:bee_ui/view/text/text.dart';
 import 'package:flutter/material.dart';
 
 class PageHome extends StatefulWidget {
@@ -17,6 +21,30 @@ class PageHome extends StatefulWidget {
 class _PageHomeState extends State<PageHome> {
   final fnField = FocusNode();
   final conField = TextEditingController();
+
+  var buahValue = "Apel";
+  var data = [
+    'Apel',
+    'Jeruk',
+    'Pisang',
+    'Mangga',
+    'Anggur',
+    'Semangka',
+    'Pepaya',
+    'Nanas',
+    'Stroberi',
+    'Kiwi',
+    'Melon',
+    'Durian',
+    'Rambutan',
+    'Salak',
+    'Sirsak',
+    'Manggis',
+    'Ceri',
+    'Leci',
+    'Alpukat',
+    'Jambu'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +67,7 @@ class _PageHomeState extends State<PageHome> {
             padding: paddingBottom(),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               BeeButtonIcon(
                 Icons.add,
@@ -50,8 +79,21 @@ class _PageHomeState extends State<PageHome> {
             "Button Text",
             onTap: () {},
             padding: paddingBottom(),
+          ).center(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BeeText(
+                "200000".toCurrency(),
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+              ),
+              BeeText(
+                "200000".toDecimal(),
+              ),
+            ],
           ),
-          BeeTextfield(
+          BeeTextField(
             label: "Textfield",
             borderRadius: 8,
             padding: paddingBottom(),
@@ -61,11 +103,33 @@ class _PageHomeState extends State<PageHome> {
             sufficIcon: Icons.visibility,
             onChanged: (v) {},
           ),
-          BeeTextfield(
+          BeeTextField(
             borderRadius: 8,
             padding: paddingBottom(),
             sufficText: "IDR",
+            type: TextInputType.number,
           ),
+          Row(
+            children: [
+              BeeAutocompleted(
+                label: "Buah",
+                value: buahValue,
+                data: data,
+                onChanged: (value) {
+                  buahValue = value;
+                  setState(() {});
+                },
+              ).expanded(),
+              const Gap(),
+              BeeAutocompleted(
+                label: "Autocompleted",
+                value: "data",
+                buttonText: "Change",
+                data: data,
+                onChanged: (value) {},
+              ).expanded(),
+            ],
+          ).padding(paddingBottom()),
         ],
       ),
     );

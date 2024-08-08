@@ -17,6 +17,10 @@ extension ExtWidget on Widget {
     );
   }
 
+  Expanded expanded(){
+    return Expanded(child: this);
+  }
+
   Widget onTapAnimation(
     Function()? tap, {
     Color? color,
