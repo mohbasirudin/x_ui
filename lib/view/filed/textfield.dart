@@ -24,6 +24,7 @@ class BeeTextField extends StatefulWidget {
   final String? sufficText;
   final Function()? onTapSuffic;
   final bool enabled;
+  final Color? cursorColor;
 
   const BeeTextField({
     this.controller,
@@ -40,6 +41,7 @@ class BeeTextField extends StatefulWidget {
     this.sufficText,
     this.onTapSuffic,
     this.enabled = true,
+    this.cursorColor,
     super.key,
   });
 
@@ -124,7 +126,7 @@ class _BeeTextFieldState extends State<BeeTextField> {
         TextFormField(
           controller: widget.controller,
           focusNode: focusNode,
-          cursorColor: _helper.getPrimaryColor(),
+          cursorColor: widget.cursorColor ?? _helper.getPrimaryColor(),
           keyboardType: widget.type,
           textInputAction: widget.action,
           style: _textStyle(color: _helper.getTextColor()),
@@ -162,7 +164,9 @@ class _BeeTextFieldState extends State<BeeTextField> {
     if (!widget.isShowBorder) return null;
 
     return OutlineInputBorder(
-      borderRadius: radiusAll(value: widget.borderRadius),
+      borderRadius: radiusAll(
+        value: widget.borderRadius,
+      ),
       borderSide: BorderSide(
         color: focusNode != null ? color : _helper.getOutlinedColor(),
         width: _helper.getOutlinedSize(),

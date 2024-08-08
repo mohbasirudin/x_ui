@@ -27,10 +27,11 @@ class _CLabelFieldState extends State<CLabelField> {
     return BeeText(
       widget.label,
       fontSize: _helper.getFontSize().scale(0.85),
+      fontWeight: FontWeight.w500,
       padding: paddingBottom(value: 4),
       color: widget.hasFocus
           ? _helper.getPrimaryColor()
-          : _helper.getDisabledColor(),
+          : _helper.getTextColor(),
     ).show(
       widget.label.isNotEmpty,
     );

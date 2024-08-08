@@ -86,7 +86,7 @@ class _BeeAutocompletedState extends State<BeeAutocompleted> {
           ),
           child: Row(
             children: [
-              BeeText(widget.value).expanded(),
+              BeeText(widget.value, maxLines: 1).expanded(),
               icon,
             ],
           ),
@@ -149,7 +149,6 @@ class _MenuState extends State<_Menu> {
 
     data = widget.data;
     helper = widget.helper;
-    logs(name: "auto", message: data);
   }
 
   void _setData(String search) {
@@ -187,10 +186,11 @@ class _MenuState extends State<_Menu> {
         children: [
           BeeTextField(
             hint: "Search",
-            borderRadius: 8,
+            borderRadius: helper.getRadius(),
             onChanged: _setData,
             sufficIcon: Icons.close,
             onTapSuffic: () => _setData(""),
+            cursorColor: widget.selectedColor,
             padding: paddingAll(),
           ),
           BeeListSeparated(

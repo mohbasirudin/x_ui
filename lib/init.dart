@@ -14,6 +14,9 @@ class BeeUi {
     Color? outlinedColor,
     Color? errorColor,
     Color? textColor,
+    double? radius,
+    double? padding,
+
   }) async {
     Helper helper = Helper();
 
@@ -26,5 +29,7 @@ class BeeUi {
     helper.setOutlinedColor(value: outlinedColor);
     helper.setErrorColor(value: errorColor);
     helper.setTextColor(value: textColor);
+    helper.setRadius(value: radius);
+    helper.setPadding(value: padding);
   }
 }

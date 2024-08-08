@@ -10,6 +10,8 @@ class Helper {
   static Color? _outlinedColor;
   static Color? _errorColor;
   static Color? _textColor;
+  static double? _radius;
+  static double? _padding;
 
   void setPrimaryColor({Color? value}) {
     _primaryColor = value;
@@ -81,5 +83,21 @@ class Helper {
 
   Color getTextColor() {
     return _textColor ?? Colors.black87;
+  }
+
+  void setRadius({double? value}) {
+    _radius = value;
+  }
+
+  double getRadius() {
+    return _radius ?? 8;
+  }
+
+  void setPadding({double? value}) {
+    _padding = value;
+  }
+
+  double getPadding() {
+    return _padding ?? 12;
   }
 }
